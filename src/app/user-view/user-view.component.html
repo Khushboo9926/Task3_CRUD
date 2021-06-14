@@ -1,0 +1,28 @@
+<div style="margin: 100px;">
+    <form [formGroup] ="userForm">
+
+        <div class="mb-3">
+          <label for="username" class="form-label">User Name</label>
+          <input type="text" class="form-control" id="name" formControlName="username" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="position" class="form-label">Position</label>
+            <input type="text" class="form-control" id="position" formControlName="position" readonly>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="office" class="form-label">Office</label>
+            <input type="text" class="form-control" id="office" formControlName="office" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="text" class="form-control" id="age" formControlName="age" readonly>
+          </div>
+
+
+        <button class="btn btn-danger" routerLink="/user">Go Back</button>
+      </form>
+</div>

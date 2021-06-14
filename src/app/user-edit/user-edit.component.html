@@ -1,0 +1,63 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">User Update {{currentId}}  </h1>
+   
+</div>
+
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="updateForm()">
+<div class="row form-group">
+    <div class="col-lg-6">
+        <label for="">User Name</label>
+        <input type="text" class="form-control " formControlName="username" [ngClass]="{'form-error':userForm.get('username').touched && userForm.get('username').invalid}">
+        <span style="color: red;" 
+        *ngIf="userForm.get('username').touched && userForm.get('username').invalid"
+        >Please enter the name</span>
+    </div>
+    <div class="col-lg-6">
+        <label for="">Position</label>
+        <input type="text" class="form-control" formControlName="position" [ngClass]="{'form-error':userForm.get('position').touched && userForm.get('position').invalid}">
+    </div>
+
+</div>
+
+
+<div class="row form-group">
+    <div class="col-lg-6">
+        <label for="">Office</label>
+        <input type="text" class="form-control" formControlName="office" [ngClass]="{'form-error':userForm.get('office').touched && userForm.get('office').invalid}">
+    </div>
+    <div class="col-lg-6">
+        <label for="">Age</label>
+        <select class="form-control" formControlName="age">
+            <option value="el">
+                18-30
+            </option >
+            <option value="ga">
+                30-50
+            </option>
+            <option value="th">
+                50-70
+            </option>
+        
+
+        </select>
+    </div>
+
+</div>
+
+<div class="row form-group">
+    <div class="col-lg-6">
+       
+        <input type="submit" [disabled]="!userForm.valid" class="btn btn-primary" value="Submit">
+    </div>
+    
+
+</div>
+</form>
+</div>
+
+
+<pre>
+    {{userForm.value | json}}
+    {{userForm.valid}}
+</pre>

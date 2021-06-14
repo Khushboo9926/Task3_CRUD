@@ -1,0 +1,59 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Product Update {{currentId}}  </h1>
+   
+</div>
+
+<div class="container">
+    <form [formGroup]="productForm" (ngSubmit)="updateForm()">
+<div class="row form-group">
+    <div class="col-lg-6">
+        <label for="">Product Name</label>
+        <input type="text" class="form-control " formControlName="productname" [ngClass]="{'form-error':productForm.get('productname').touched && productForm.get('productname').invalid}">
+        <span style="color: red;" 
+        *ngIf="productForm.get('productname').touched && productForm.get('productname').invalid"
+        >Please enter the name</span>
+    </div>
+    <div class="col-lg-6">
+        <label for="">Price</label>
+        <input type="number" class="form-control" formControlName="productprice" [ngClass]="{'form-error':productForm.get('productprice').touched && productForm.get('productprice').invalid}">
+    </div>
+
+</div>
+
+
+<div class="row form-group">
+    <div class="col-lg-6">
+        <label for="">Discount</label>
+        <input type="number" class="form-control" formControlName="discount" [ngClass]="{'form-error':productForm.get('discount').touched && productForm.get('discount').invalid}">
+    </div>
+    <div class="col-lg-6">
+        <label for="">Type</label>
+        <select class="form-control" formControlName="type">
+            <option value="el">
+                Electronic
+            </option >
+            <option value="ga">
+                Gadget
+            </option>
+
+        </select>
+    </div>
+
+</div>
+
+<div class="row form-group">
+    <div class="col-lg-6">
+       
+        <input type="submit" [disabled]="!productForm.valid" class="btn btn-primary" value="Submit">
+    </div>
+    
+
+</div>
+</form>
+</div>
+
+
+<pre>
+    {{productForm.value | json}}
+    {{productForm.valid}}
+</pre>

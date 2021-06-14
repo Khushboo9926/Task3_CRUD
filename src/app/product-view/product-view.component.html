@@ -1,0 +1,28 @@
+<div style="margin: 100px;">
+    <form [formGroup] ="productForm">
+
+        <div class="mb-3">
+          <label for="productname" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="name" formControlName="productname" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="productprice" class="form-label">Product Price</label>
+            <input type="number" class="form-control" id="productprice" formControlName="productprice" readonly>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="discount" class="form-label">Product Discount</label>
+            <input type="number" class="form-control" id="discount" formControlName="discount" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="type" class="form-label">Product Type</label>
+            <input type="text" class="form-control" id="type" formControlName="type" readonly>
+          </div>
+
+
+        <button class="btn btn-danger" routerLink="/product">Go Back</button>
+      </form>
+</div>
