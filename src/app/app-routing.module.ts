@@ -17,7 +17,7 @@ import { DashboardContainerComponent } from './dashboard-container/dashboard-con
 
 const routes: Routes = [
   {
-    path: "login",
+    path: "",
     component: LoginComponent
   },
   {
