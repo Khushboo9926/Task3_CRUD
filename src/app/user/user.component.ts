@@ -13,16 +13,32 @@ export class UserComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private userService:UserService, private route:Router){
     this.currentId = activeRoute.snapshot.params.id ;
   }
-  ngOnInit(): void {
-   this.userList= this.userService.returnUser();
-  }
+//   ngOnInit(): void {
+//    this.userList= this.userService.returnUser();
+//   }
 
 
-  deleteuser(id:any){
-    this.userService.deleteUserById(id);    
+//   deleteuser(id:any){
+//     this.userService.deleteUserById(id);    
   
+// }
+  
+ngOnInit(): void {
+  this.loadUser()
 }
-  
 
+loadUser(){
+  this.userService.returnUser().subscribe((res:any)=>{
+    this.userList= res
+   });
+}
+
+deleteuser(id:any){
+  //this.productService.deleteProductById(id);    
+  this.userService.deleteUserById(id).subscribe(()=>{
+    this.loadUser();
+  })
+
+}
 }
 

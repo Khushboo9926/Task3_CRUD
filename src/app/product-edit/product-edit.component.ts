@@ -12,12 +12,13 @@ export class ProductEditComponent implements OnInit {
   fb:FormBuilder=new FormBuilder;
   productForm:any;
   currentId:any;
+  currentProductData:any;
   constructor(private activeRoute: ActivatedRoute, private productService: ProductService, private route:Router) {
     this.currentId = activeRoute.snapshot.params.id ;
    }
 
   ngOnInit(): void {
-    let currentProductData = this.productService.returnProductById(this.currentId);
+   
 
     this.productForm = this.fb.group({
       "productname":this.fb.control("", Validators.required),
@@ -25,14 +26,20 @@ export class ProductEditComponent implements OnInit {
       "discount":this.fb.control(0, [Validators.min(0),Validators.max(5)]),
       "type":this.fb.control("", Validators.required)
     })
-
-    this.productForm.patchValue(currentProductData);
+    
+    this.productService.returnProductById(this.currentId).subscribe((res)=>{
+      this.currentProductData = res ;
+      this.productForm.patchValue(this.currentProductData);
+    })
+   
   }
 
   updateForm(){
-    this.productService.updateProductById(this.currentId,this.productForm.value);
-    this.route.navigate(["/product"]);
+    this.productService.updateProductById(this.currentId,this.productForm.value).subscribe(()=>{
+      this.route.navigate(["/dashboard/product"]);
 
+    })
+    
 
   }
 }

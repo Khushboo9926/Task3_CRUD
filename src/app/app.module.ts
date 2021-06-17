@@ -16,6 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserViewComponent } from './user-view/user-view.component';
+import { HttpClientModule} from "@angular/common/http";
+import { LoginComponent } from './login/login.component';
+import { DashboardContainerComponent } from './dashboard-container/dashboard-container.component'
 
 @NgModule({
   declarations: [
@@ -31,12 +34,15 @@ import { UserViewComponent } from './user-view/user-view.component';
     ProductViewComponent,
     UserCreateComponent,
     UserEditComponent,
-    UserViewComponent
+    UserViewComponent,
+    LoginComponent,
+    DashboardContainerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

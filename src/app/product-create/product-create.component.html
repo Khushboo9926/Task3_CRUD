@@ -2,7 +2,7 @@
     <h1 class="h3 mb-0 text-gray-800">Product Create </h1>
    
 </div>
-
+<router-outlet></router-outlet>
 <div class="container">
     <form [formGroup]="productForm" (ngSubmit)="submitForm()">
 <div class="row form-group">
@@ -44,7 +44,7 @@
 <div class="row form-group">
     <div class="col-lg-6">
        
-        <input type="submit" [disabled]="!productForm.valid" class="btn btn-primary" value="Submit">
+        <input type="submit" [disabled]="!productForm.valid" class="btn btn-secondary" value="Submit">
     </div>
     
 

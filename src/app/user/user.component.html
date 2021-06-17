@@ -1,6 +1,6 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">User </h1>
-    <a routerLink="/user-create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+    <a routerLink="/dashboard/user-create" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i>Create User</a>
 </div>
 
@@ -36,14 +36,14 @@
                     <tr *ngFor="let user of userList">
 
                         <td>
-                            <a routerLink="/user-view/1"> {{user.username}}</a>
+                            <a routerLink="/dashboard/user-view/1"> {{user.username}}</a>
                         </td>
                         <td>{{user.position}}</td>
                         <td>{{user.office}}</td>
                         <td>{{user.age}}</td>
                         <td>2011/04/25</td>
                         <th>
-                            <a [routerLink]="['/user-edit', user.id]"> Edit</a>  |
+                            <a [routerLink]="['/dashboard/user-edit', user.id]"> Edit</a>  |
                             <a routerLink ="/user" (click)="deleteuser(user.id)"> Delete</a> 
                             
                         </th>
